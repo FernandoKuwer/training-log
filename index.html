@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1B5E6E">
+<title>Training Log</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<div class="app">
+
+  <header class="app-header">
+    <div class="week-row">
+      <div class="week-nav">
+        <button class="icon-btn" id="prevWeekBtn" aria-label="Previous week">&#8592;</button>
+        <span class="week-label" id="weekLabel"></span>
+        <button class="icon-btn" id="nextWeekBtn" aria-label="Next week">&#8594;</button>
+      </div>
+      <button class="install-btn" id="installBtn">Install</button>
+    </div>
+
+    <div class="dose-meter">
+      <div class="dose-meter-head">
+        <span class="dose-title">Aerobic dose</span>
+        <span class="dose-readout mono"><span id="doseValue">0.0</span><span class="dose-unit"> / 20.0 MET-h</span></span>
+      </div>
+      <div class="dose-bar-track" id="doseBarTrack">
+        <div class="dose-bar-fill" id="doseBarFill"></div>
+        <div class="dose-tick" id="doseTick10"></div>
+        <div class="dose-tick" id="doseTick18"></div>
+      </div>
+      <div class="dose-ticks-space">
+        <span class="dose-tick-label" id="doseTick10Label">10 &middot; CHALLENGE</span>
+        <span class="dose-tick-label" id="doseTick18Label">18</span>
+      </div>
+    </div>
+  </header>
+
+  <nav class="day-strip" id="dayStrip" aria-label="Day selector"></nav>
+
+  <main class="day-view" id="dayView"></main>
+
+  <section class="day-view" style="padding-top:0;">
+    <div class="data-section">
+      <p class="data-section-label">Backup</p>
+      <div class="data-actions">
+        <button class="data-btn" id="exportBtn">Export JSON</button>
+        <button class="data-btn" id="importBtn">Import JSON</button>
+      </div>
+      <input type="file" id="importFile" accept="application/json" class="visually-hidden">
+    </div>
+  </section>
+
+</div>
+
+<!-- Progression history sheet -->
+<div class="sheet-backdrop hidden" id="historySheetBackdrop">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="historyTitle">
+    <div class="sheet-head">
+      <div>
+        <h2 class="sheet-title" id="historyTitle"></h2>
+        <div class="sheet-sub" id="historySub"></div>
+      </div>
+      <button class="sheet-close" id="historyCloseBtn" aria-label="Close">&#10005;</button>
+    </div>
+    <div class="chart-wrap" id="historyChartWrap"></div>
+    <ul class="history-list" id="historyList"></ul>
+  </div>
+</div>
+
+<!-- Import confirm dialog -->
+<div class="confirm-backdrop hidden" id="importConfirmBackdrop">
+  <div class="confirm-box">
+    <p id="importConfirmText">Import data from this file?</p>
+    <div class="confirm-actions">
+      <button class="primary" id="importMergeBtn">Merge with existing data</button>
+      <button id="importReplaceBtn">Replace all existing data</button>
+      <button id="importCancelBtn">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="program.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
