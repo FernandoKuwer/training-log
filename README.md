@@ -6,10 +6,7 @@ only in this browser's `localStorage`.
 
 ## Live app
 
-`https://<your-github-username>.github.io/training-log/`
-
-(Filled in with the real URL once Pages finishes its first deploy — see
-"Deployment" below.)
+https://fernandokuwer.github.io/training-log/
 
 ## Installing to an Android home screen (Chrome)
 
