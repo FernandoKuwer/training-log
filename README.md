@@ -100,16 +100,15 @@ instead.
   cardio checkbox on any day adds its `metHours`), since the six cardio items
   together are what sum to the `WEEKLY_MET_TARGET`.
 
-### Spec inconsistency worth flagging
+### Spec inconsistency, resolved
 
-The `DERIVED CONSTANT` note states the six `metHours` values sum to `19.99`,
-which is correct (2.13 + 3.33 + 5.83 + 2.13 + 0 + 6.57 = 19.99). But the
-Acceptance Criteria expect the dose meter to reach "exactly 20.0" when all
-six cardio items are ticked. Per the instruction not to alter MET values,
-the data is encoded exactly as specified in the spec, so at full completion
-the meter reads **19.99 / 20.0**, not 20.0 / 20.0. If you want it to hit
-20.0 exactly, one `metHours` value needs to change by 0.01 — say so and
-I'll make the edit.
+The spec's `DERIVED CONSTANT` note stated the six `metHours` values sum to
+`19.99` (2.13 + 3.33 + 5.83 + 2.13 + 0 + 6.57 = 19.99), which conflicted with
+the Acceptance Criteria's expectation that the dose meter reach "exactly
+20.0" when all six cardio items are ticked. Per explicit instruction, Saturday's
+`sat-int` interval session was bumped from `6.57` to `6.58` MET-h to close
+the 0.01 gap — all other values are exactly as specified. The meter now
+reads 20.0 / 20.0 at full completion.
 
 ## Acceptance checklist
 
@@ -121,8 +120,8 @@ I'll make the edit.
 - [x] Previous-week comparison and delta render correctly across a week
       boundary (previous week is derived from ISO week math, not a stored
       pointer, so year/week-number rollovers are handled automatically)
-- [ ] Dose meter reaches exactly 20.0 when all six cardio items are ticked —
-      see "Spec inconsistency" above; it reaches 19.99 as specified
+- [x] Dose meter reaches exactly 20.0 when all six cardio items are ticked —
+      see "Spec inconsistency, resolved" above
 - [x] Export produces valid JSON; import of that file restores state exactly
       (tested as Merge and Replace)
 - [ ] Lighthouse PWA audit — verify once the real URL is live over HTTPS

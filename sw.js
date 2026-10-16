@@ -1,6 +1,6 @@
 // sw.js — cache-first service worker for the app shell.
 // Bump CACHE_VERSION on every deploy so clients pick up new files.
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME = 'training-log-' + CACHE_VERSION;
 
 const PRECACHE_URLS = [

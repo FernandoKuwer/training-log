@@ -130,7 +130,7 @@ const PROGRAM = [
     title: 'Intervals + Steady',
     durationMin: 55,
     cardio: [
-      { id: 'sat-int', name: 'Interval session', detail: '55 min · bike or row · ~7.2 MET avg', metHours: 6.57 }
+      { id: 'sat-int', name: 'Interval session', detail: '55 min · bike or row · ~7.2 MET avg', metHours: 6.58 }
     ],
     protocol: [
       '8 min easy warm-up',
